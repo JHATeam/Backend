@@ -63,7 +63,10 @@ RUN python3 -m pip install --upgrade pip && \
     python3 -m pip install --upgrade --no-cache-dir $(grep -E "^pip==|^setuptools==|^wheel==" requirements.txt) && \
     python3 -m pip install --disable-pip-version-check --user --no-cache-dir "$(grep '^cython==' requirements.txt)" && \
     python3 -m pip install --disable-pip-version-check --user --no-cache-dir "$(grep '^numpy==' requirements.txt)" && \
-    python3 -m pip install --disable-pip-version-check --user --no-cache-dir -r requirements.txt 
+    python3 -m pip install --disable-pip-version-check --user --no-cache-dir -r requirements.txt && \
+    cd ${CODE_HOME} && \
+    rm -rf "Python-$PYTHON_VERSION" && \
+    rm -f "Python-$PYTHON_VERSION.tgz"
 
 # ######################
 # # PROJECT FILES

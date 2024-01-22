@@ -1,4 +1,4 @@
-PROJECT=job-assistant
+PROJECT=master
 
 IMAGE_BASE=job-assistant
 

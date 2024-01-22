@@ -8,4 +8,4 @@ export TOP_DIR="${SCRIPT_DIR}/../.."
 source "$TOP_DIR"/scripts/dev/env.sh
 cd $TOP_DIR/src
 echo "Running flask app"
-python3 -m flask run
+python3 -m flask run -p 8080
