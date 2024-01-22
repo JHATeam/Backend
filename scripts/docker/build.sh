@@ -12,8 +12,7 @@ if [[ -n "${DOCKERFILE:-}" ]]; then
   DOCKER_BUILD_OPTS="${DOCKER_BUILD_OPTS:-} -f ${DOCKERFILE}"
 fi
 
-# we want the build options to expand
-# shellcheck disable=SC2086
+
 DOCKER_BUILDKIT=1 docker build ${DOCKER_BUILD_OPTS:-} \
   --build-arg BUILDKIT_INLINE_CACHE=1 \
   -t "${IMAGE_BASE}" -t "${IMAGE_BASE}:${BASE_IMAGE_TAG}" \
