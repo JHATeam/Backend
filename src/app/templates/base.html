@@ -1,0 +1,25 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - JHA</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+    <ul>
+        <li><a href="{{ url_for('jobs.get_all_jobs') }}">jobs</a></li>
+        <li><a href="{{ url_for('jobs.create_job') }}">create job</a></li>
+    </ul>
+</nav>
+<section class="content">
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+</section>
+<section class="footer">
+    {% block footer %}{% endblock %}
+    <p>&copy; 2024 JHA flask webpage. Released under the <a href="https://opensource.org/licenses/MIT"
+            target="_blank">MIT
+            License</a>.</p>
+</section>

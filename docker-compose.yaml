@@ -19,7 +19,7 @@ services:
     restart: "no"
     platform: linux/amd64
     ports:
-      - 8080:8000
+      - 8080:8080
     networks:
       - jobnet
 
