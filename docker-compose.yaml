@@ -22,6 +22,15 @@ services:
       - 8080:8080
     networks:
       - jobnet
+  
+  redis:
+    image: redis:latest
+    restart: "no"
+    platform: linux/amd64
+    ports:
+      - 6391:6391
+    networks:
+      - jobnet
 
 
 networks:
