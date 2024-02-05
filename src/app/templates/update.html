@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Update Job{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.title.label }}
+        {{ form.title(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.company.label }}
+        {{ form.company(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.location.label }}
+        {{ form.location(class="form-control") }}
+    </div>
+    <div class="form-group">
+        {{ form.description.label }}
+        {{ form.description(class="form-control") }}
+    </div>
+    <button type="submit" class="btn btn-primary">Update Job</button>
+</form>
+
+{% endblock %}
