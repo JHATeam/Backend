@@ -1,5 +1,6 @@
-from flask import current_app
+from flask import current_app, jsonify
 from app import job_service
+import requests
 
 
 def get_all_jobs():
@@ -21,6 +22,16 @@ def create_job(job):
     save_jobs(jobs)
     return job
 
+def collect_jobs(input_text):
+    jobs = load_jobs()
+    if len(jobs) == 0:
+        job['id'] = 1
+    else:
+        job['id'] = max([job['id'] for job in jobs]) + 1
+    job['summary'] = input_text
+    jobs.append(job)
+    save_jobs(jobs)
+    return job
 
 def update_job(id, new_job):
     jobs = load_jobs()
@@ -64,3 +75,15 @@ def save_jobs(jobs):
             json.dump({'jobs': jobs}, f)
     except:
         pass
+
+def get_job_summary(job):
+    # TODO: Update with AI service
+    try:
+        response = requests.get(
+            'https://my-json-server.typicode.com/Slothbetty/SampleSummaryJsonData/job_summary')
+        if response.status_code == 200:
+            return response.json()
+        else:
+            return jsonify({'error': 'Failed to retrieve data from API'}), 500
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500

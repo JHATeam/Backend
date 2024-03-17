@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 
 {% block header %}
-<h1>{% block title %}Jobs{% endblock %}</h1>
+<h1>{% block title %}Collect Job Description{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
+
+<form action="/" method="POST">
+    <label for="text-input">Enter Job Description or URL:</label><br>
+    <textarea id="text-input" name="input_text" rows="4" cols="50"></textarea><br>
+    <button type="submit">Submit</button>
+</form>
 
 {% for job in jobs %}
 <div class="card">
