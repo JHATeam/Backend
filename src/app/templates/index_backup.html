@@ -1,22 +1,11 @@
 {% extends 'base.html' %}
+{% block title%}{% endblock %}
 
 {% block header %}
-<h1>{% block title %}Collect Job Description{% endblock %}</h1>
+<h1>{% block title %}Jobs{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-
-<form action="" method="POST">
-    {{form.hidden_tag()}}
-    <div class="form-group">
-        {{ form.description.label }}
-        {{ form.description(class="form-control") }}
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-{% if error is defined and error is not none %}
-<div id="dynamic_div_summary">{{error}}</div>
-{% endif %}
 
 {% for job in jobs %}
 <div class="card">
