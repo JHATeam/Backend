@@ -6,11 +6,17 @@
 
 {% block content %}
 
-<form action="/" method="POST">
-    <label for="text-input">Enter Job Description or URL:</label><br>
-    <textarea id="text-input" name="input_text" rows="4" cols="50"></textarea><br>
-    <button type="submit">Submit</button>
+<form action="" method="POST">
+    {{form.hidden_tag()}}
+    <div class="form-group">
+        {{ form.description.label }}
+        {{ form.description(class="form-control") }}
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+{% if error is defined and error is not none %}
+<div id="dynamic_div_summary">{{error}}</div>
+{% endif %}
 
 {% for job in jobs %}
 <div class="card">

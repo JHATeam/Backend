@@ -7,3 +7,4 @@ wheel==0.42.0
 Flask-WTF
 WTForms
 requests
+regex 
